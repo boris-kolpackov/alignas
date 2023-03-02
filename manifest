@@ -7,6 +7,7 @@ description-file: README.md
 url: https://example.org/alignas
 email: boris@codesynthesis.com
 #build-error-email: boris@codesynthesis.com
+builds: all
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
 #depends: libhello ^1.0.0
