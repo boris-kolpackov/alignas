@@ -19,8 +19,7 @@ test ()
 
   cerr << N << ' ' << a1 << ' ' << a2 << '\n';
 
-  //return a2 >= a1;
-  return a2 == a1;
+  return a2 >= a1;
 }
 
 int main ()
