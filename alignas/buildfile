@@ -1,0 +1,9 @@
+libs =
+#import libs += libhello%lib{hello}
+
+exe{alignas}: {hxx ixx txx cxx}{**} $libs
+{
+  test = true
+}
+
+cxx.poptions =+ "-I$out_root" "-I$src_root"

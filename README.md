@@ -1,0 +1,3 @@
+# alignas
+
+C++ executable
