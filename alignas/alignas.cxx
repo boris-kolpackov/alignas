@@ -1,4 +1,5 @@
 #include <cstddef>
+#include <algorithm>
 #include <type_traits>
 
 #include <iostream>
@@ -11,7 +12,8 @@ test ()
 {
   struct type
   {
-    alignas(std::max_align_t) char data[N];
+    //alignas(std::max_align_t) char data[N];
+    alignas(std::min (alignof (std::max_align_t), N)) char data[N];
   };
 
   size_t a1 (alignof (typename aligned_storage<N>::type));
@@ -19,12 +21,14 @@ test ()
 
   cerr << N << ' ' << a1 << ' ' << a2 << '\n';
 
-  return a2 >= a1;
+  //return a2 >= a1;
+  return a2 == a1;
 }
 
 int main ()
 {
   return
+    test<sizeof (short)> ()     &&
     test<sizeof (int)> ()       &&
     test<sizeof (void*) * 1> () &&
     test<sizeof (void*) * 2> () &&
